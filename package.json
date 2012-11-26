@@ -1,0 +1,39 @@
+{
+  "name": "net-star",
+  "version": "0.0.24",
+  "description": "Server topology in star. Synchronize, router messages using server tags, broadcast...",
+  "main": "./index.js",
+  "keywords": [
+    "servers",
+    "topology",
+    "star",
+    "broadcast",
+    "synchronization"
+  ],
+  "directories": {
+    "lib": ".",
+    "test": "test"
+  },
+  "scripts" : {
+    "test" : "sh run.sh & sh monitor.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/llafuente/net-star.git"
+  },
+  "author": {
+    "name": "Luis Lafuente",
+    "email": "llafuente@noboxout.com",
+    "url": "http://www.noboxout.com"
+  },
+  "license": "MIT",
+  "engine": {
+    "node": ">=0.4"
+  },
+  "dependencies" : {
+    "node-class" : ">=0.0.24"
+  },
+  "devDependencies": {
+    "tap" : "0.3.2"
+  }
+}
