@@ -1,7 +1,7 @@
 #!/bin/sh
 
-SERVERS=$(seq 1000 1005)
-
+SERVERS=$(seq 1001 1005)
+MASTER_PORT=1001
 
 for PORT in  ${SERVERS}
 do
@@ -12,13 +12,13 @@ done
 echo
 echo
 
-echo -e 'msg store aleluya\r\n' | nc localhost 1000;
+echo -e 'msg store aleluya\r\n' | nc localhost ${MASTER_PORT};
 echo
-echo -e 'msg retrieve\r\n' | nc localhost 1000;
+echo -e 'msg retrieve\r\n' | nc localhost ${MASTER_PORT};
 
-echo -e 'route master msg store "im an master!!!"\r\n' | nc localhost 1000;
-echo -e 'route slave msg store "im an slave!!!"\r\n' | nc localhost 1000;
-echo -e 'route grunt msg store "im an grunt!!!"\r\n' | nc localhost 1000;
+echo -e 'route master msg store "im an master!!!"\r\n' | nc localhost ${MASTER_PORT};
+echo -e 'route slave msg store "im an slave!!!"\r\n' | nc localhost ${MASTER_PORT};
+echo -e 'route grunt msg store "im an grunt!!!"\r\n' | nc localhost ${MASTER_PORT};
 
 sleep 1;
 
@@ -41,7 +41,7 @@ done
 echo
 echo
 
-echo -e 'stats\r\n' | nc localhost 1000;
+echo -e 'stats\r\n' | nc localhost ${MASTER_PORT};
 
 for PORT in  ${SERVERS}
 do

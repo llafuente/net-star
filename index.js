@@ -1,6 +1,6 @@
 (function (exports, browser) {
     "use strict";
 
-    exports = require("./lib/net-star.js");
+    exports.NetStar = require("./lib/net-star.js").NetStar;
 
 }(module.exports));

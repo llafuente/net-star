@@ -4,19 +4,19 @@
     var cfg = {
             node1: {
                 encoding: 'utf8',
-                control: {host: '127.0.0.1', port: 1000},
+                control: {host: '127.0.0.1', port: 1001},
                 tags: ["master"]
             },
             node2: {
                 encoding: 'utf8',
-                control: {host: '127.0.0.1', port: 1001},
-                connect: [{host: '127.0.0.1', port: 1000}],
+                control: {host: '127.0.0.1', port: 1002},
+                connect: [{host: '127.0.0.1', port: 1001}],
                 tags: ["slave", "grunt"]
             },
             node3: {
                 encoding: 'utf8',
-                control: {host: '127.0.0.1', port: 1002},
-                connect: [{host: '127.0.0.1', port: 1001}],
+                control: {host: '127.0.0.1', port: 1003},
+                connect: [{host: '127.0.0.1', port: 1002}],
                 tags: ["slave", "grunt"]
             }
         },
@@ -29,7 +29,7 @@
         cfg["node" + i] = {
             encoding: 'utf8',
             control: {host: '127.0.0.1', port: 1000 + i},
-            connect: [{host: '127.0.0.1', port: 1000}],
+            connect: [{host: '127.0.0.1', port: 1001}],
             tags: ["slave"]
         };
     }
@@ -55,7 +55,7 @@
         }
     });
 
-
+    // our test program, has two commands: store/retrieve that set/get data from a unique var perfect for testing :)
     storage = 'null';
     node.on('data', function (data, connection) {
         var command,
@@ -83,6 +83,5 @@
     } else {
         node.emit("ready");
     }
-
 
 }());
