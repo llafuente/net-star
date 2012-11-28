@@ -65,10 +65,10 @@
 
         switch (command) {
         case 'store':
-            storage = data;
+            storage = data.trim();
             break;
         case 'retrieve':
-            connection.write("data-in-storage " + storage);
+            node.send({command: "data-in-storage", args: storage}, connection);
             break;
         }
 
