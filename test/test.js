@@ -61,7 +61,7 @@
     // run the test, but first be sure all servers are online...
 
     for(i = 1; i <= mservers; ++i) {
-        test("last node is online" + i, function(t) {
+        test("last node is online node" + i, function(t) {
             var connection = net.createConnection(1000 + this, "127.0.0.1");
             connection.on('connect', function () { //'connect' listener
                 connection.destroy();
@@ -84,7 +84,7 @@
 
 
     for(i = 1; i <= mservers; ++i) {
-        test("get-server-list" + i, function(t) {
+        test("get-server-list node" + i, function(t) {
             var connection = net.createConnection(1000 + this, "127.0.0.1"),
                 first = true;
             connection.on('connect', function () {

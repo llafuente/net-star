@@ -3,18 +3,15 @@
 
     var cfg = {
             node1: {
-                encoding: 'utf8',
                 control: {host: '127.0.0.1', port: 1001},
                 tags: ["master"]
             },
             node2: {
-                encoding: 'utf8',
                 control: {host: '127.0.0.1', port: 1002},
                 connect: [{host: '127.0.0.1', port: 1001}],
                 tags: ["slave", "grunt"]
             },
             node3: {
-                encoding: 'utf8',
                 control: {host: '127.0.0.1', port: 1003},
                 connect: [{host: '127.0.0.1', port: 1002}],
                 tags: ["slave", "grunt"]
@@ -27,7 +24,6 @@
 
     for (i = 4; i < 100; ++i) {
         cfg["node" + i] = {
-            encoding: 'utf8',
             control: {host: '127.0.0.1', port: 1000 + i},
             connect: [{host: '127.0.0.1', port: 1001}],
             tags: ["slave"]
@@ -37,7 +33,7 @@
     cfg = cfg[process.argv[2]];
 
     node = new NetStar();
-    node.setup(process.argv[2], cfg.control.host, cfg.control.port, cfg.encoding, cfg.tags);
+    node.setup(process.argv[2], cfg.control.host, cfg.control.port, null, cfg.tags);
     node.createServer();
     /*
     setInterval(function () {
