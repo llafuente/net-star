@@ -3,17 +3,17 @@
 
     var cfg = {
             node1: {
-                control: {host: '127.0.0.1', port: 1001},
+                control: {host: '127.0.0.1', port: 8081},
                 tags: ["master"]
             },
             node2: {
-                control: {host: '127.0.0.1', port: 1002},
-                connect: [{host: '127.0.0.1', port: 1001}],
+                control: {host: '127.0.0.1', port: 8082},
+                connect: [{host: '127.0.0.1', port: 8081}],
                 tags: ["slave", "grunt"]
             },
             node3: {
-                control: {host: '127.0.0.1', port: 1003},
-                connect: [{host: '127.0.0.1', port: 1002}],
+                control: {host: '127.0.0.1', port: 8083},
+                connect: [{host: '127.0.0.1', port: 8082}],
                 tags: ["slave", "grunt"]
             }
         },
@@ -24,8 +24,8 @@
 
     for (i = 4; i < 100; ++i) {
         cfg["node" + i] = {
-            control: {host: '127.0.0.1', port: 1000 + i},
-            connect: [{host: '127.0.0.1', port: 1001}],
+            control: {host: '127.0.0.1', port: 8080 + i},
+            connect: [{host: '127.0.0.1', port: 8080}],
             tags: ["slave"]
         };
     }
